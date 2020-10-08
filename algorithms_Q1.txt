@@ -1,0 +1,20 @@
+	Algorithms Strengths and Weaknesses
+
+1. Gaussian Naive Bayes
+
+	- Strengths: This ML algorithm is a nonparametric one, which means
+		it is useful when we do not know from what distribution the data comes from and initially we do not
+		make any assumptions about this distrbution. However, we make the assumption that the separate features 
+		of each sample in the training set are completely independent from each other, which is useful because
+		it readuces cost significantly and still reaches very accurate and realistic results. Also, it deals
+		with the curse of dimensionality problem by abstracting the features from each other and by doing so reduces the
+		need for a very large training set in case of many features.
+		- scalable - number of parameters to adjust is linear to the number of features. If we have n classes, for every feature 
+		we need to find the best parameters mean and variance for every class, and so the total number of parameters is n * num(features) * 2
+		- works better with smaller datasets that other classfiers
+
+	- Weaknesses: This ML algorithm is unsuitable in the case there is a strong dependence between the separate features 
+		of each input. It also fails to find good estimates for the class conditional probability, despite the fact it usually does 
+		not rely on it being so good to produce accurate decisions. 
+		- for every feature of a test set, you have to compute n class conditional probabilities for every class, which may result in slow 
+		predictions
