@@ -57,12 +57,24 @@ Feature extraction - a process prior to using an ML algorithm to discard feature
 4. Logistic Regression
 	
 	- Strengths: 
+		Linear classifier for classification problems.
+		A simple alghorithm, more clear and traceable in its process than other ML linear discriminative algorithms like SVM.
+		For a sample, the algorithm gives a probability of being in a class,
+		which is more useful than results like one given by Decision trees, which only find a class label for the sample.
+		Linear regression is able to assign weights to each feature, as well as how each feature influences the final decision of confidence for the given class.
+		Does not need to be trained from the beginning every time a new training datapoint is added because it uses gradient accent, in contrast to Naive Bayes and Decision tree algorithms
 
-	- Weaknesses: 
+	- Weaknesses:
+		Assumes classes can be linearly separable, which in many cases can lead to poor predictions when we have lots if noise or the training data is meshed 
+		The features can be wrongly assessed as important or not, in addition to difficulty in taking into account feature dependence
+		Data has to be pre-processed
+		Does not work good with small datasets, gradient accent needs many training samples to converge properly.
+		Not robust against outliers.
 
 5. Support Vector Machine
 	
 	- Strengths
+		
 
 	- Weaknesses
 
