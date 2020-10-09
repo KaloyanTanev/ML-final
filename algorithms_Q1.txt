@@ -1,5 +1,8 @@
 	Algorithms Strengths and Weaknesses
 
+
+Feature extraction - a process prior to using an ML algorithm to discard features that are redundant
+
 1. Gaussian Naive Bayes
 
 	- Strengths: This ML algorithm is a nonparametric one, which means
@@ -18,3 +21,52 @@
 		not rely on it being so good to produce accurate decisions. 
 		- for every feature of a test set, you have to compute n class conditional probabilities for every class, which may result in slow 
 		predictions
+
+
+2. Decision Tree 
+	
+	- Strenghts: This ML algorithm is useful in case we want to find a non-linear decision boundary for our regression or classification problem.
+		     In the case of classification, the decisions are less than or equal to the number of features.
+		     In the case of regression, the decisions become close to linear with respect to the number of features.
+		     They are more interpretable than other learing algorithms.
+		     They work well with large datasets, because decisions for a sample are made in a reasonable time.
+		     No assumptions are made regarding the data or feature distribution.
+
+
+
+	- Weaknesses: The time it takes to form a tree is slow due to the use of recursion.
+		      The shape can be very dependent on the training data. A small change in it can lead to completely different shape and consequently to very
+		      different predicions.
+		      - overfitting can occur if we make a too complex tree which does not generalize from the data, but usually this problem is
+		      	dealt with using pruning.
+
+
+3. K-Nearest Neightbours
+	
+	- Strengths: A non-parametric approach - Good if we do not know the data distribution or we cannot make any assumptions about it.
+			Usually a very good classification performance.
+			The algorithm can adapt to change of feature importance by proper scaling.	
+
+	- Weaknesses: Can become slow because for a new sample we have to estimate the distance to every training sample.
+			Data has to be normalized for correct estimation of distance.
+			Relatively large training sets are needed.
+			Because it is nonparametric, we have to store the complete training set.
+			Performance depends on the right choice of k and distance measurement function.
+			Does not deal good with the curse of dimensionality problem.
+
+4. Logistic Regression
+	
+	- Strengths: 
+
+	- Weaknesses: 
+
+5. Support Vector Machine
+	
+	- Strengths
+
+	- Weaknesses
+
+
+			
+
+			
