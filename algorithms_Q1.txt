@@ -74,10 +74,17 @@ Feature extraction - a process prior to using an ML algorithm to discard feature
 5. Support Vector Machine
 	
 	- Strengths
-		
+		- works very well with linearly separable data
+		- works with both linear and non-linear data
+		- small changes to the training dataset do not affect the decision boundary if the points changed are further away from the boundary.
+			then the nearest class points, beacause the maximum margin boundary is found by minimizing the hinge loss function plus the regularization term,
+			and this sum is not affected if a training datapoint is on the side of the margin to which its label corresponds. 
+		- the algorithm can use a regularization term in the case the data is not linearly separable.
 
 	- Weaknesses
-
+		- data has to be pre-processed and normalizaed 
+		- does not work well with large datasets, because then the training time is slow and all the suppoort vectors have to be stored
+		- may underperform if the data is not separable ( despite using the regularization term) or the features are more than the training sample.
 
 			
 
