@@ -9,48 +9,45 @@ Feature extraction - a process prior to using an ML algorithm to discard feature
 		- simple, fast and more interpretable, scalable
 		- useful when we cannot make assumptions for the distribution of the whole data
 		- reduces cost thanks to the assumption of independence of features and still reaches quite accurate results
-		- it deals with the curse of dimensionality problem, reducing the need for a very lrge training set in case of many features.		
-		- works better with smaller datasets that other classfiers
+		- it deals with the curse of dimensionality problem, reducing the need for a very large training set in case of many features	
+		- works better with smaller datasets than other classfiers
 
 	- Weaknesses: 
-		- unsuitable when there is a strong dependence between the separate features of each sample. 
+		- unsuitable when there is even a moderate dependence between the separate features of each sample
            - fails to find good estimates for the class conditional probability, despite the fact it usually does 
-			not rely on it being so good to produce accurate decisions. 
+			not rely on it being so good to produce accurate decisions 
 		
 
 2. Decision Tree 
 	
 	- Strenghts: 
-		- useful in case we want to find a non-linear decision boundary for our regression or classification problem.
-		- fast once the tree is created as the number of decisions is linear to the number of features		
-		- more interpretable than other learning algorithms.
-		- works well with large datasets, because decisions for a sample are made in a reasonable time.
-		- no assumptions are made regarding the data or feature distribution.
-		- scalable
+		- scalable, interpretable, fast because the number of decisions is linear to the number of features
+		- useful in case we want to find a non-linear decision boundary for our regression or classification problem
+		- works well with both numerical and categorical data
+		- no assumptions are made regarding the data or feature distribution
 
 
 	- Weaknesses: 
 		- creating the tree is costly
-		- the shape can be very dependent on the training data. A small change in it can lead to completely different shape and consequently to very
-		      different predicions.
+		- the shape can be very dependent on the training data. A small change in it
+			can lead to completely different shape and consequently to very different predicions
 		- overfitting can occur if we make a too complex tree which does not generalize from the data, but usually this problem is
-		      	dealt with using pruning
+		      dealt with using pruning
 
 
 3. K-Nearest Neightbours
 	
-	- Strengths: 
-			- Good if we do not know the data distribution or we cannot make any assumptions about it.
-			- usually a very good classification performance.
-			- adaptable to change of feature importance by proper scaling.	
-			- works well with large datasets		
+	- Strengths:
+		- Good if we do not know the data distribution or we cannot make any assumptions about it
+		- usually a very good classification performance
+		- adaptable to change of feature importance by proper scaling				
+		
 	
-	- Weaknesses: 
-			- slow because of many distance estimations for a new sample to predict. 
-			- data has to be normalized for correct estimation of distance.
-			- relatively large training sets are needed.
-			- we have to store the complete training set.
-			- Does not deal good with the curse of dimensionality problem.
+	- Weaknesses:
+		- slow because of many distance estimations for a new sample to predict
+		- data has to be normalized for correct estimation of distance
+		- we have to store the complete training set
+		
 
 4. Logistic Regression
 	
@@ -59,24 +56,28 @@ Feature extraction - a process prior to using an ML algorithm to discard feature
 		- outputs a probability, not a class label, which can be more useful
 		- assigns weights to each feature
 		- adapts very fast to new training samples as it uses gradient ascent
+
 	- Weaknesses:
+		- can overfit if there is a high dimnesionality
 		- assumes linearly separable classes 
 		- data has to be pre-processed
-		- does not work good with small datasets, gradient accent needs many training samples to converge properly.
-		- not robust against outliers.
+		- does not work good with small datasets, gradient accent needs many training samples to converge properly
+		- not robust against outliers
+		- 
 
 5. Support Vector Machine
 	
 	- Strengths
 		- works very well with linearly separable data
-		- works with both linear and non-linear data
+		- can work with both linearly and non-linearly seperable data
 		- small changes to the training dataset do not affect the decision boundary if the new points are 
 			further away from and on the right side of the boundary
-		- uses a regularization term, which helps if the data is not linearly separable.
+		- memory efficient
+
 
 	- Weaknesses
-		- performs rather poorly with non-lineraly-separable data
-		- data has to be pre-processed and normalizaed 
+		- performs poorly when there is lots of noise
+		- data has to be pre-processed and normalized 
 		- does not work well with large datasets, because then the training time is slow and all the suppoort vectors have to be stored			
-
+		
 			
