@@ -5,87 +5,78 @@ Feature extraction - a process prior to using an ML algorithm to discard feature
 
 1. Gaussian Naive Bayes
 
-	- Strengths: This ML algorithm is a nonparametric one, which means
-		it is useful when we do not know from what distribution the data comes from and initially we do not
-		make any assumptions about this distrbution. However, we make the assumption that the separate features 
-		of each sample in the training set are completely independent from each other, which is useful because
-		it readuces cost significantly and still reaches very accurate and realistic results. Also, it deals
-		with the curse of dimensionality problem by abstracting the features from each other and by doing so reduces the
-		need for a very large training set in case of many features.
-		- scalable - number of parameters to adjust is linear to the number of features. If we have n classes, for every feature 
-		we need to find the best parameters mean and variance for every class, and so the total number of parameters is n * num(features) * 2
+	- Strengths: 
+		- simple, fast and more interpretable, scalable
+		- useful when we cannot make assumptions for the distribution of the whole data
+		- reduces cost thanks to the assumption of independence of features and still reaches quite accurate results
+		- it deals with the curse of dimensionality problem, reducing the need for a very lrge training set in case of many features.		
 		- works better with smaller datasets that other classfiers
 
-	- Weaknesses: This ML algorithm is unsuitable in the case there is a strong dependence between the separate features 
-		of each input. It also fails to find good estimates for the class conditional probability, despite the fact it usually does 
-		not rely on it being so good to produce accurate decisions. 
-		- for every feature of a test set, you have to compute n class conditional probabilities for every class, which may result in slow 
-		predictions
-
+	- Weaknesses: 
+		- unsuitable when there is a strong dependence between the separate features of each sample. 
+           - fails to find good estimates for the class conditional probability, despite the fact it usually does 
+			not rely on it being so good to produce accurate decisions. 
+		
 
 2. Decision Tree 
 	
-	- Strenghts: This ML algorithm is useful in case we want to find a non-linear decision boundary for our regression or classification problem.
-		     In the case of classification, the decisions are less than or equal to the number of features.
-		     In the case of regression, the decisions become close to linear with respect to the number of features.
-		     They are more interpretable than other learing algorithms.
-		     They work well with large datasets, because decisions for a sample are made in a reasonable time.
-		     No assumptions are made regarding the data or feature distribution.
+	- Strenghts: 
+		- useful in case we want to find a non-linear decision boundary for our regression or classification problem.
+		- fast once the tree is created as the number of decisions is linear to the number of features		
+		- more interpretable than other learning algorithms.
+		- works well with large datasets, because decisions for a sample are made in a reasonable time.
+		- no assumptions are made regarding the data or feature distribution.
+		- scalable
 
 
-
-	- Weaknesses: The time it takes to form a tree is slow due to the use of recursion.
-		      The shape can be very dependent on the training data. A small change in it can lead to completely different shape and consequently to very
+	- Weaknesses: 
+		- creating the tree is costly
+		- the shape can be very dependent on the training data. A small change in it can lead to completely different shape and consequently to very
 		      different predicions.
-		      - overfitting can occur if we make a too complex tree which does not generalize from the data, but usually this problem is
-		      	dealt with using pruning.
+		- overfitting can occur if we make a too complex tree which does not generalize from the data, but usually this problem is
+		      	dealt with using pruning
 
 
 3. K-Nearest Neightbours
 	
-	- Strengths: A non-parametric approach - Good if we do not know the data distribution or we cannot make any assumptions about it.
-			Usually a very good classification performance.
-			The algorithm can adapt to change of feature importance by proper scaling.	
-
-	- Weaknesses: Can become slow because for a new sample we have to estimate the distance to every training sample.
-			Data has to be normalized for correct estimation of distance.
-			Relatively large training sets are needed.
-			Because it is nonparametric, we have to store the complete training set.
-			Performance depends on the right choice of k and distance measurement function.
-			Does not deal good with the curse of dimensionality problem.
+	- Strengths: 
+			- Good if we do not know the data distribution or we cannot make any assumptions about it.
+			- usually a very good classification performance.
+			- adaptable to change of feature importance by proper scaling.	
+			- works well with large datasets		
+	
+	- Weaknesses: 
+			- slow because of many distance estimations for a new sample to predict. 
+			- data has to be normalized for correct estimation of distance.
+			- relatively large training sets are needed.
+			- we have to store the complete training set.
+			- Does not deal good with the curse of dimensionality problem.
 
 4. Logistic Regression
 	
 	- Strengths: 
-		Linear classifier for classification problems.
-		A simple alghorithm, more clear and traceable in its process than other ML linear discriminative algorithms like SVM.
-		For a sample, the algorithm gives a probability of being in a class,
-		which is more useful than results like one given by Decision trees, which only find a class label for the sample.
-		Linear regression is able to assign weights to each feature, as well as how each feature influences the final decision of confidence for the given class.
-		Does not need to be trained from the beginning every time a new training datapoint is added because it uses gradient accent, in contrast to Naive Bayes and Decision tree algorithms
-
+		- simple and interpretable
+		- outputs a probability, not a class label, which can be more useful
+		- assigns weights to each feature
+		- adapts very fast to new training samples as it uses gradient ascent
 	- Weaknesses:
-		Assumes classes can be linearly separable, which in many cases can lead to poor predictions when we have lots if noise or the training data is meshed 
-		The features can be wrongly assessed as important or not, in addition to difficulty in taking into account feature dependence
-		Data has to be pre-processed
-		Does not work good with small datasets, gradient accent needs many training samples to converge properly.
-		Not robust against outliers.
+		- assumes linearly separable classes 
+		- data has to be pre-processed
+		- does not work good with small datasets, gradient accent needs many training samples to converge properly.
+		- not robust against outliers.
 
 5. Support Vector Machine
 	
 	- Strengths
 		- works very well with linearly separable data
 		- works with both linear and non-linear data
-		- small changes to the training dataset do not affect the decision boundary if the points changed are further away from the boundary.
-			then the nearest class points, beacause the maximum margin boundary is found by minimizing the hinge loss function plus the regularization term,
-			and this sum is not affected if a training datapoint is on the side of the margin to which its label corresponds. 
-		- the algorithm can use a regularization term in the case the data is not linearly separable.
+		- small changes to the training dataset do not affect the decision boundary if the new points are 
+			further away from and on the right side of the boundary
+		- uses a regularization term, which helps if the data is not linearly separable.
 
 	- Weaknesses
+		- performs rather poorly with non-lineraly-separable data
 		- data has to be pre-processed and normalizaed 
-		- does not work well with large datasets, because then the training time is slow and all the suppoort vectors have to be stored
-		- may underperform if the data is not separable ( despite using the regularization term) or the features are more than the training sample.
-
-			
+		- does not work well with large datasets, because then the training time is slow and all the suppoort vectors have to be stored			
 
 			
