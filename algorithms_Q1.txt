@@ -1,83 +1,21 @@
-	Algorithms Strengths and Weaknesses
-
-
-Feature extraction - a process prior to using an ML algorithm to discard features that are redundant
+Algorithms Strengths and Weaknesses
 
 1. Gaussian Naive Bayes
-
-	- Strengths: 
-		- simple, fast and more interpretable, scalable
-		- useful when we cannot make assumptions for the distribution of the whole data
-		- reduces cost thanks to the assumption of independence of features and still reaches quite accurate results
-		- it deals with the curse of dimensionality problem, reducing the need for a very large training set in case of many features	
-		- works better with smaller datasets than other classfiers
-
-	- Weaknesses: 
-		- unsuitable when there is even a moderate dependence between the separate features of each sample
-           - fails to find good estimates for the class conditional probability, despite the fact it usually does 
-			not rely on it being so good to produce accurate decisions 
-		
+	Strength - deals with the curse of dimensionality problem, reducing the need for a very large training set in case of many features. Moreover, it works very well with small datasets.
+	Weakness - slow, because for every new sample it has to calculate every class conditional probability for each of its features.
 
 2. Decision Tree 
-	
-	- Strenghts: 
-		- scalable, interpretable, fast because the number of decisions is linear to the number of features
-		- useful in case we want to find a non-linear decision boundary for our regression or classification problem
-		- works well with both numerical and categorical data
-		- no assumptions are made regarding the data or feature distribution
-
-
-	- Weaknesses: 
-		- creating the tree is costly
-		- the shape can be very dependent on the training data. A small change in it
-			can lead to completely different shape and consequently to very different predicions
-		- overfitting can occur if we make a too complex tree which does not generalize from the data, but usually this problem is
-		      dealt with using pruning
-
+	Strenght - useful in case we want to find a non-linear decision boundary for our regression or classification problem.
+	Weakness - decision trees are unstable. This means that a small change in the data can cause huge changes in the tree.
 
 3. K-Nearest Neightbours
-	
-	- Strengths:
-		- Good if we do not know the data distribution or we cannot make any assumptions about it
-		- usually a very good classification performance
-		- adaptable to change of feature importance by proper scaling				
-		
-	
-	- Weaknesses:
-		- slow because of many distance estimations for a new sample to predict
-		- data has to be normalized for correct estimation of distance
-		- we have to store the complete training set
-		
+	Strength - can be updated on the fly as new training data is added at little cost.
+	Weakness - slow and memory inefficient, because of many distance estimations for a new sample to predict and the complete training set has to be stored.
 
 4. Logistic Regression
-	
-	- Strengths: 
-		- simple and interpretable
-		- outputs a probability, not a class label, which can be more useful
-		- assigns weights to each feature
-		- adapts very fast to new training samples as it uses gradient ascent
-
-	- Weaknesses:
-		- can overfit if there is a high dimnesionality
-		- assumes linearly separable classes 
-		- data has to be pre-processed
-		- does not work good with small datasets, gradient accent needs many training samples to converge properly
-		- not robust against outliers
-		- 
+	Strength - simple algorithm which can adapt very fast to new training samples as it uses gradient a(/de)scent.
+	Weakness - does not work good with small datasets, gradient accent needs many training samples to converge properly.
 
 5. Support Vector Machine
-	
-	- Strengths
-		- works very well with linearly separable data
-		- can work with both linearly and non-linearly seperable data
-		- small changes to the training dataset do not affect the decision boundary if the new points are 
-			further away from and on the right side of the boundary
-		- memory efficient
-
-
-	- Weaknesses
-		- performs poorly when there is lots of noise
-		- data has to be pre-processed and normalized 
-		- does not work well with large datasets, because then the training time is slow and all the suppoort vectors have to be stored			
-		
-			
+	Strength - memory efficient algorithm which works very well with linearly separable data.
+	Weakness - inefficient with large datasets, because the training time is slow and all the suppoort vectors have to be stored.
