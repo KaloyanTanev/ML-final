@@ -1,60 +1,32 @@
-	Hyper-Parameters
+1. K-Nearest Neighbours:
+	"n_neighbours" 	-	the bigger its value is, the more distances are taken into account for prediction,
+							which leads to better performance against noisy data, but also to more unclear decision boundary and time complexity.
+							If its value is too small, the algorithm can be badly affected by noise and incorrect feature scaling of the training data.
 
-1. K-Nearest Neighbours - 2 hyper-parameters:
-	
-	- n_neighbours: This parameter affects the speed and locality of prediction of the alghorithm. The larger the 
-		parameter, the more time and space is used by the algorithm, because more time is needed for comparing
-		distances to training samples and more distances have to be stored during the prediction for a new sample.
-		The bigger the value, the bigger subset of the training data the algorithm uses in its predictions,
-		which leads to more unclear boundary between classes. If n_neighbours is too small, the algorithm can be badly affected
-		by incorrect scaling of the features or noise in the training data.
-		
+	"weights" 		-  	can lead to bad performance when set to 'distance' and there is incorrect feature scaling.
 
-
-	- weights: 
-		The weight function used in predictions.
-		If set to "uniform", all neighbours are weighted equally, and the most common class between the neighbours is predicted. 
-		If set to "distance", then nearer neigbours have greater weight in the class prediction.
+2. DecisionTree Classifier:
+	"max_depth" and "min_samples_leaf"  -  determine how much the algorithm generalizes from the data, the degree of smoothing and the degree of overfitting.
+												Small max_depth or large min_samples_leaf lead to faster training and prediction, but also can lead to underfitting.
+												If max_depth is large, then the algorithm can experience overfitting if min_samples_leaf is also too small.
 
 
-
-2. DecisionTree Classifier - 3 hyper-parameters:
-	
-	- max_depth and min_samples_leaf:
-		These two parameters determine how much the algorithm generalizes from the data, how many regions the sample space is divided into and the degree of overfitting.
-		If max_depth is small, it significantly reduces the training and prediction time of the algorithm, because less levels means less time until a tree is constructed and less levels to go down until a decision is made.
-		If it is too small in value, then predictions tend to become less accurate.
-		If it is too large, then the algorithm can experience overfitting if min_samples_leaf is also too small.
-
-
-3.SVC
-	- C = 10
-		This is the SVM regularization parameter. It determines the trade-off the algorithm makes
-			between making missclassification as small as possible and finding the largest margin between the classes.
-			The higher the C, the less missclassifed samples are allowed, but the smaller the margin becomes.	
-			So, with values moving towards infinity, the algorithm tends to overfit, and with values moving towards 0,
-				it tends to underfit.
+3.SVC:
+  	"C"		 	 - 	determines the trade-off the algorithm makes between making missclassification as small as possible and finding the largest 
+						margin between the classes. Higher values lead to smaller margins and may lead to overfitting, while very small values
+						lead to larger margins that in turn cause more misclassification and underfitting.	
 			
 	
-	- kernel = "poly" 
-		The kernel function used for pre-processing of the data. It allows the classifier
-			to be fitted to non-linearly separable data, thus adapting it to different kinds
-			of separation between classes.
+	"kernel" 	 - 	allows the classifier to be fitted to non-linearly separable data, thus adapting it to different kinds 
+						of separation between classes.
 
-4. Logistic Regression
-
-	- C = 10 and penalty = "none"
-	- These parameters control the regularization applied in the algorithm to adjust the weights coefficients so that
-		overfitting or underfitting does not happen, like for instance when for some feature, there are not many
-		unique values and so the corresponding weight coefficient is poorly trained. The penalty determines what type of
-		regularization norm is used and C is the inverse of the regularization parameter. The lower the C, the more
-		penalization is applied in case of large weight coefficients.
+4. Logistic Regression:
+	"C" and "penalty" - control the regularization applied in the algorithm to adjust the weights coefficients so that
+							overfitting or underfitting does not happen. If penalty is not 'none', the lower the C, the more
+							penalty is applied in case of large weight coefficients. The type of penalty norm usually
+							does not make a huge difference on the performance.
 	
 
 
-The common hyper-parameter random_state:
-	This parameter is used to control the randomness of the training set / test set split by the algorithms in case, 
-	for example, we apply cross validation. If set to a specific value, you get the same split every time you make a 
-	split on the dataset. This is useful for documentation because you want other people to get the same results as you
-	had if they follow the same process. However, when creating a practical application, it is better to leave this parameter 
-	to the default value so that randomness is fully achieved.
+"random_state" -  controls the randomness of the train/test split in case we apply cross validation etc. In practice, for 
+					more realistic algorithm performance it should not be fixed. 
