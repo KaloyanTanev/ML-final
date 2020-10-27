@@ -1,0 +1,17 @@
+1. Gaussian Naive Bayes: MNIST dataset showed that less features make GNB much more accurate.
+However, in US-Census it performed worse than the other algorithms after they have been tuned, otherwise it was quite similar to some of them.
+What it excels in is the speed.
+
+2. Decision Tree Classifier: If the features have bigger correlation, the algorithm is not affected that much by the change of dimensionality.
+From the US-Census we have observed that this classifier is the one with the highest score compared to the others
+after hyperparameter tuning, which means it is a good classifier for binary classificiation.
+
+3. Support Vector Classifier: SVC has the best performance before the hyperparameter tuning. However, the actual tuning didn't
+affect it that much in both datesets and in the US-Census the DTC came above it. The biggest drawback of the SVC is the time it takes - fit + score
+time for US-Census was ~6 seconds compared to all of the others which were ~0.1 seconds.
+
+4. Linear Regression: In MNIST, LRC was greatly affected by the number of parameters. In both datasets LRC's score was barely improved
+after the hyperparameter tuning. In the US-Census it scored almost the same as SVC, which was the highest before the tuning.
+
+5. K-Nearest Neighbours: After comparing the performance of KNC's performance in the 2 datasets, we concluded that it performs
+better with numerical data than categorical one. It had the worst score (before tuning) in US-Census and second best in the MNIST.
