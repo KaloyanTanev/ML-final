@@ -1,0 +1,32 @@
+1. K-Nearest Neighbours:
+     "n_neighbours" - the bigger its value is, the more distances are taken into account for prediction,
+           which leads to better performance against noisy data, but also to more unclear decision boundary and time complexity.
+           If its value is too small, the algorithm can be badly affected by noise and incorrect feature scaling of the training data.
+
+     "weights" - can lead to bad performance when set to 'distance' and there is incorrect feature scaling.
+
+2. DecisionTree Classifier:
+     "max_depth" and "min_samples_leaf" - determine how much the algorithm generalizes from the data, the degree of smoothing and the degree of overfitting.
+           Small max_depth or large min_samples_leaf lead to faster training and prediction, but also can lead to underfitting.
+           If max_depth is large, then the algorithm can experience overfitting if min_samples_leaf is also too small.
+
+
+3.SVC:
+     "C" - determines the trade-off the algorithm makes between making missclassification as small as possible and finding the largest 
+           margin between the classes. Higher values lead to smaller margins and may lead to overfitting, while very small values
+           lead to larger margins that in turn cause more misclassification and underfitting.	
+			
+	
+     "kernel" - allows the classifier to be fitted to non-linearly separable data, thus adapting it to different kinds 	
+           of separation between classes.
+
+4. Logistic Regression:
+     "C" and "penalty" - control the regularization applied in the algorithm to adjust the weights coefficients so that
+           overfitting or underfitting does not happen. If penalty is not 'none', the lower the C, the more
+           penalty is applied in case of large weight coefficients. The type of penalty norm usually	
+           does not make a huge difference on the performance.
+	
+
+
+"random_state" - controls the randomness of the train/test split in case we apply cross validation etc. In practice, for 
+      more realistic algorithm performance it should not be fixed. 

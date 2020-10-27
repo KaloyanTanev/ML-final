@@ -1,0 +1,21 @@
+Algorithms Strengths and Weaknesses
+
+1. Gaussian Naive Bayes
+	Strength - deals with the curse of dimensionality problem, reducing the need for a very large training set in case of many features. Moreover, it works very well with small datasets.
+	Weakness - slow, because for every new sample it has to calculate every class conditional probability for each of its features.
+
+2. Decision Tree 
+	Strenght - useful in case we want to find a non-linear decision boundary for our regression or classification problem.
+	Weakness - decision trees are unstable. This means that a small change in the data can cause huge changes in the tree.
+
+3. K-Nearest Neightbours
+	Strength - can be updated on the fly as new training data is added at little cost.
+	Weakness - slow and memory inefficient, because of many distance estimations for a new sample to predict and the complete training set has to be stored.
+
+4. Logistic Regression
+	Strength - simple algorithm which can adapt very fast to new training samples as it uses gradient a(/de)scent.
+	Weakness - does not work good with small datasets, gradient accent needs many training samples to converge properly.
+
+5. Support Vector Machine
+	Strength - memory efficient algorithm which works very well with linearly separable data.
+	Weakness - inefficient with large datasets, because the training time is slow and all the suppoort vectors have to be stored.
